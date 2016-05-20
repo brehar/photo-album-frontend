@@ -24,4 +24,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/html/albumdetails.html',
         controller: 'albumdetailsCtrl'
     });
+
+    $urlRouterProvider.otherwise('/');
 });
