@@ -1,0 +1,42 @@
+<br>
+
+<div class="row center" ng-hide="imageToSubmit">
+    <button class="waves-effect waves-light btn" ng-click="addImage()">Add Image</button>
+</div>
+
+<div class="row" ng-show="imageToSubmit">
+    <form class="col s8 offset-s2" ng-submit="saveImage()">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="imageUrl" type="url" class="validate" ng-model="newImage.imageUrl">
+                <label for="imageUrl">Image URL</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="description" type="text" class="validate" ng-model="newImage.description">
+                <label for="description">Description</label>
+            </div>
+        </div>
+        <div class="row center">
+            <button class="btn waves-effect waves-light" type="button" ng-click="cancelSubmit()">Cancel</button>
+            <button class="btn waves-effect waves-light" type="submit">Submit <i class="material-icons right">send</i></button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col s12 m4" ng-repeat="image in images">
+        <div class="card">
+            <div class="card-image">
+                <img ui-sref="imagedetails({id: image._id})" ng-src="{{ image.imageUrl }}">
+            </div>
+            <div class="card-content">
+                <p>{{ image.description }}</p>
+            </div>
+            <div class="card-action">
+                Posted: {{ image.createdAt | date }}
+            </div>
+        </div>
+    </div>
+</div>

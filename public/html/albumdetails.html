@@ -1,0 +1,18 @@
+<br>
+
+<div class="row">
+    <div class="col s12 m4" ng-repeat="image in images">
+        <div class="card">
+            <div class="card-image">
+                <img ui-sref="imagedetails({id: image._id})" ng-src="{{ image.imageUrl }}">
+            </div>
+            <div class="card-content">
+                <p>{{ image.description }}</p>
+            </div>
+            <div class="card-action">
+                Posted: {{ image.createdAt | date }}
+                <br><button type="button" class="btn waves-effect waves-light" ng-click="removeImage(image._id, image)">Remove from Album</button>
+            </div>
+        </div>
+    </div>
+</div>
